@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.39.1](https://github.com/open-telemetry/opentelemetry-js-contrib/compare/instrumentation-ioredis-v0.39.0...instrumentation-ioredis-v0.39.1) (2024-04-10)
+
+
+### Bug Fixes
+
+* **instrumentation-ioredis:** drop @types/ioredis dependency ([#2069](https://github.com/open-telemetry/opentelemetry-js-contrib/issues/2069)) ([a172f8a](https://github.com/open-telemetry/opentelemetry-js-contrib/commit/a172f8affa2d54b13542c3dfc103dd54ccf031ad))
+
 ## [0.39.0](https://github.com/open-telemetry/opentelemetry-js-contrib/compare/instrumentation-ioredis-v0.38.0...instrumentation-ioredis-v0.39.0) (2024-04-03)
 
 

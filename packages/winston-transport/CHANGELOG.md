@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/open-telemetry/opentelemetry-js-contrib/compare/winston-transport-v0.2.0...winston-transport-v0.2.1) (2024-04-10)
+
+
+### Bug Fixes
+
+* **winston-transport:** Typescript issue with OpenTelemetryTransportV3 not assignable to TransportStream ([#2079](https://github.com/open-telemetry/opentelemetry-js-contrib/issues/2079)) ([b006f7f](https://github.com/open-telemetry/opentelemetry-js-contrib/commit/b006f7f4ce466611e437240508b9bc4deb622175)), closes [#2015](https://github.com/open-telemetry/opentelemetry-js-contrib/issues/2015)
+
 ## [0.2.0](https://github.com/open-telemetry/opentelemetry-js-contrib/compare/winston-transport-v0.1.0...winston-transport-v0.2.0) (2024-04-03)
 
 
