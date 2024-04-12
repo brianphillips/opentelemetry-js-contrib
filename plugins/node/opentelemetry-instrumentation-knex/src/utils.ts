@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-import { DbSystemValues } from '@opentelemetry/semantic-conventions';
+import {
+  DBSYSTEMVALUES_POSTGRESQL,
+  DBSYSTEMVALUES_SQLITE,
+} from '@opentelemetry/semantic-conventions';
 
 type Exception = {
   new (message: string): Exception;
@@ -29,7 +32,8 @@ export const getFormatter = (runner: any) => {
     if (runner.client) {
       if (runner.client._formatQuery) {
         return runner.client._formatQuery.bind(runner.client);
-      } else if (runner.client.SqlString) {
+      }
+      if (runner.client.SqlString) {
         return runner.client.SqlString.format.bind(runner.client.SqlString);
       }
     }
@@ -52,11 +56,16 @@ export const cloneErrorWithNewMessage = (err: Exception, message: string) => {
 };
 
 const systemMap = new Map([
-  ['sqlite3', DbSystemValues.SQLITE],
-  ['pg', DbSystemValues.POSTGRESQL],
+  ['sqlite3', DBSYSTEMVALUES_SQLITE],
+  ['pg', DBSYSTEMVALUES_POSTGRESQL],
 ]);
-export const mapSystem = (knexSystem: string) => {
-  return systemMap.get(knexSystem) || knexSystem;
+export const mapSystem = (knexSystem: any) => {
+  if (typeof knexSystem === 'string') {
+    return systemMap.get(knexSystem) || knexSystem;
+  }
+  if (typeof knexSystem === 'function') {
+    return knexSystem.prototype?.driverName || knexSystem.name;
+  }
 };
 
 export const getName = (db: string, operation?: string, table?: string) => {
